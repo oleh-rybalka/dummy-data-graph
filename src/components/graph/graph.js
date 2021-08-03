@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend} from 'recharts';
 import GraphHat from '../graphHat/graphHat';
 import s from './graph.module.css'
@@ -46,9 +47,9 @@ function getMaxOfArray(field) {
 
 
 function Graph() {
-  const daily = getMaxOfArray('daily')
-  const weekly = getMaxOfArray('weekly')
-  const monthly = getMaxOfArray('monthly')
+  const daily = useMemo(() => getMaxOfArray('daily'), [])
+  const weekly = useMemo(() => getMaxOfArray('weekly'), [])
+  const monthly = useMemo(() => getMaxOfArray('monthly'), [])
 
     return (
 

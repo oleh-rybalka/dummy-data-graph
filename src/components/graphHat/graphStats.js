@@ -1,6 +1,7 @@
 
 import { Grid } from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import { useMemo } from 'react';
 import s from './graphStats.module.css'
 
 const colors = {
@@ -16,7 +17,7 @@ const colors = {
 };
 
 function GraphStats({text, amount, color}) {
-const lineColor = colors[color]
+const lineColor = useMemo(()=>colors[color], [color] )
 
     return <div className='s.container' >
         <Grid

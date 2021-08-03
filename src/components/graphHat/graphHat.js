@@ -4,7 +4,6 @@ import s from './graphHat.module.css'
 
 function GraphHat({ daily, weekly, monthly }) {
     return (
-        <div className={s.main}>
         <Grid
             container
             direction="row"
@@ -16,7 +15,6 @@ function GraphHat({ daily, weekly, monthly }) {
             <GraphStats text='Weekly' amount={weekly} color='weekly' />
             <GraphStats text='Daily' amount={daily} color='daily' />
         </Grid>
-        </div>
     )
 }
 
