@@ -1,15 +1,16 @@
 
+import { Grid } from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import s from './graphStats.module.css'
 
 const colors = {
-    'monthly': {
+    'daily': {
       color: "#b62066",
     },
     'weekly': {
       color: "#3a50c9",
     },
-    'daily': {
+    'monthly': {
       color: "#713ac9",
     },
 };
@@ -18,13 +19,16 @@ function GraphStats({text, amount, color}) {
 const lineColor = colors[color]
 
     return <div className='s.container' >
-        
+        <Grid
+            container
+            direction="row"
+            justifyContent="space-around"
+            alignItems="center"
+        >
         <FiberManualRecordIcon style={lineColor}/>
-        {text}
-        <div className={s.amount}>
-        {amount}
-        </div>
-
+        <div className={s.text}>{text}</div>
+        <div className={s.amount}>{amount<1000 ? `${amount}k` : `${(amount/1000).toFixed(1)}m`}</div>
+      </Grid>
 
     </div>
 }

@@ -2,19 +2,19 @@ import { Grid } from '@material-ui/core';
 import GraphStats from './graphStats'
 import s from './graphHat.module.css'
 
-function GraphHat() {
+function GraphHat({ daily, weekly, monthly }) {
     return (
         <div className={s.main}>
         <Grid
             container
             direction="row"
             justifyContent="space-around"
-            alignItems="baseline"
+            alignItems="center"
         >
-            <p>Active Community Members</p>
-            <GraphStats text='Monthly' amount={1.2} color='daily'/>
-            <GraphStats text='Weekly' amount={830} color='weekly' />
-            <GraphStats text='Daily' amount={485} color='monthly' />
+            <p className={s.title}>Active Community Members</p>
+            <GraphStats text='Monthly' amount={monthly} color='monthly'/>
+            <GraphStats text='Weekly' amount={weekly} color='weekly' />
+            <GraphStats text='Daily' amount={daily} color='daily' />
         </Grid>
         </div>
     )
